@@ -4,39 +4,36 @@ import { useContext } from 'react';
 import { AnalyticsContext } from '../analytics-context';
 import { getDisplayName } from '../utils';
 
-const withAnalytics = mapTrackingToProps => Component => {
+const withAnalytics = mapAnalyticsToProps => Component => {
     const displayName = getDisplayName(Component);
 
-    const trackEventProvider = (props, context) => {
-        const trackEvent = useContext(AnalyticsContext);
-        let trackingProps = {};
+    const analyticsEventProvider = (props, context) => {
+        const analyticsEvent = useContext(AnalyticsContext);
+        let analyticsProps = {};
 
-        if (!trackEvent) {
+        if (!analyticsEvent) {
             throw Error(`Could not find tracker in the context of ` + `"${ displayName }"`);
         }
+        if (typeof mapAnalyticsToProps === 'function') {
+            analyticsProps = mapAnalyticsToProps(analyticsEvent);
 
-        // Get the object to merge with props
-        if (typeof mapTrackingToProps === 'function') {
-            trackingProps = mapTrackingToProps(trackEvent);
-
-            if (!trackingProps || typeof trackingProps !== 'object') {
-                throw Error(`mapTrackingToProps should return an object, instead it returns ` + `"${typeof trackingProps}"`);
+            if (!analyticsProps || typeof analyticsProps !== 'object') {
+                throw Error(`mapAnalyticsToProps should return an object, instead it returns ` + `"${typeof analyticsProps}"`);
             }
         } else {
-            // if no `mapTrackingToProps` provided let's just pass trackEvent function to the props
-            trackingProps = { trackEvent };
+            analyticsProps = { trackEvent };
         }
 
-        const propsWithTracking = Object.assign({}, props, trackingProps);        
+        const propsWithTracking = Object.assign({}, props, analyticsProps);        
         return React.createElement(Component, propsWithTracking);
     }
  
-    trackEventProvider.displayName = displayName;
-    // trackEventProvider.contextTypes = {
+    analyticsEventProvider.displayName = displayName;
+    // analyticsEventProvider.contextTypes = {
     //     trackEvent: propTypes.func.isRequired
     // };
 
-    return trackEventProvider;
+    return analyticsEventProvider;
 }
 
 export default withAnalytics;

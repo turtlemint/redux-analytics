@@ -3,7 +3,7 @@ export const getDisplayName = WrappedComponent => {
         || WrappedComponent.name
         || 'Component';
 
-    return `TrackEventProvider(${wrappedComponentName})`;
+    return `AnalyticsEventProvider(${wrappedComponentName})`;
 }
 
 export const assertlisteners = (listeners = []) => {

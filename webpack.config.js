@@ -8,6 +8,7 @@ module.exports = {
     },
     watch: true,
     mode: 'none',
+    devtool: 'cheap-eval-source-map',
     module: {    
         rules: [
             {

@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from  'react-dom';
 import Consumer from './consumer';
-import { Analytics, AnalyticsProvider } from '../index';
-import segmentTagClick from './analytics/listeners/segment-tag-click';
+import store from './store';
+import { Provider } from 'react-redux';
 
-const tracker = new Analytics([segmentTagClick]);
+
 const App = () => {
     return (
-        <AnalyticsProvider analytics={tracker}>
+        <Provider store={store}>
             <Consumer />
-        </AnalyticsProvider>
-        
-    )
+        </Provider>
+    );
 }
 
 const root = document.getElementById('root');

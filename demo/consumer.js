@@ -1,23 +1,15 @@
 import React from 'react';
 import { withAnalytics } from '../index';
-import SegmentTagClickEvent from './analytics/events/segment-tag-click';
+import { connect } from 'react-redux';
+import { segmentTagClick } from './actions';
 
-
-const Consumer = ({segmentTagClick}) => {
+const Consumer = ({ dispatch }) => {
     return (
-        <button onClick={() => segmentTagClick()}>
+        <button onClick={() => dispatch(segmentTagClick())}>
             Segment click
         </button>
     );
 }
- 
-const mapAnalyticsToProps = trackEvent => {
-    return {
-        segmentTagClick: () => {
-            trackEvent(SegmentTagClickEvent());
-        }
-    }
-}
-const DecoratedConsumer = withAnalytics(mapAnalyticsToProps)(Consumer);
+const ConnectedConsumer = connect()(Consumer);
 
-export default DecoratedConsumer;
+export default ConnectedConsumer;

@@ -1,0 +1,1 @@
+export const SEGMENT_TAG_CLICK = "SEGMENT_TAG_CLICK";

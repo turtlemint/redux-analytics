@@ -1,11 +1,11 @@
 import { assertlisteners } from './utils';
 
-export default class Tracker {
+export default class Analytics {
     constructor(listeners) {
-        this.trackingHistory = [];
+        this.analyticsHistory = [];
         this.listeners = assertlisteners(listeners);
 
-        this.trackEvent = this.trackEvent.bind(this);
+        this.analyticsEvent = this.analyticsEvent.bind(this);
     }
 
     on(eventType, callback) {
@@ -21,7 +21,7 @@ export default class Tracker {
         this.listeners = [...this.listeners, callback];
     }
 
-    trackEvent(event) {
+    analyticsEvent(event) {
         const { type, data } = event || {};
 
         if (!type) {
@@ -39,16 +39,15 @@ export default class Tracker {
                     || typeof listener.eventType === 'undefined'
                 )
             ) {
-                const save = listener.call(null, event, this.trackingHistory);
-
+                const save = listener.call(null, event, this.analyticsHistory);
+                
                 if (save) {
-                    this.trackingHistory = [...this.trackingHistory, save];
+                    this.analyticsHistory = [...this.analyticsHistory, save];
                 }
             }
         }
     }
-
     getHistory() {
-        return this.trackingHistory;
+        return this.analyticsHistory;
     }
 }
