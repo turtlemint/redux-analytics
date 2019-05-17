@@ -7,7 +7,6 @@ const AnalyticsProvider = ({ analytics, children }) => {
             {children}
         </AnalyticsContext.Provider>
     );
-
 }
 
 export default AnalyticsProvider;

@@ -1,5 +1,5 @@
 import { createStore, combineReducers, applyMiddleware} from 'redux';
-import analyticsMiddleware from './middlewares/analyticsMiddleware';
+import analyticsMiddleware from '../analyticsMiddleware';
 import analyticsReducer from './reducers/analytics';
 import { Analytics } from '../index';
 import segmentTagClick from './analytics/listeners/segment-tag-click';

@@ -7,15 +7,15 @@ import { getDisplayName } from '../utils';
 const withAnalytics = mapAnalyticsToProps => Component => {
     const displayName = getDisplayName(Component);
 
-    const analyticsEventProvider = (props, context) => {
-        const analyticsEvent = useContext(AnalyticsContext);
+    const callListenerProvider = (props, context) => {
+        const callListener = useContext(AnalyticsContext);
         let analyticsProps = {};
 
-        if (!analyticsEvent) {
+        if (!callListener) {
             throw Error(`Could not find tracker in the context of ` + `"${ displayName }"`);
         }
         if (typeof mapAnalyticsToProps === 'function') {
-            analyticsProps = mapAnalyticsToProps(analyticsEvent);
+            analyticsProps = mapAnalyticsToProps(callListener);
 
             if (!analyticsProps || typeof analyticsProps !== 'object') {
                 throw Error(`mapAnalyticsToProps should return an object, instead it returns ` + `"${typeof analyticsProps}"`);
@@ -28,12 +28,12 @@ const withAnalytics = mapAnalyticsToProps => Component => {
         return React.createElement(Component, propsWithTracking);
     }
  
-    analyticsEventProvider.displayName = displayName;
-    // analyticsEventProvider.contextTypes = {
+    callListenerProvider.displayName = displayName;
+    // callListenerProvider.contextTypes = {
     //     trackEvent: propTypes.func.isRequired
     // };
 
-    return analyticsEventProvider;
+    return callListenerProvider;
 }
 
 export default withAnalytics;

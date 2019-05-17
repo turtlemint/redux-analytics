@@ -5,7 +5,7 @@ export default class Analytics {
         this.analyticsHistory = [];
         this.listeners = assertlisteners(listeners);
 
-        this.analyticsEvent = this.analyticsEvent.bind(this);
+        this.callListener = this.callListener.bind(this);
     }
 
     on(eventType, callback) {
@@ -21,7 +21,7 @@ export default class Analytics {
         this.listeners = [...this.listeners, callback];
     }
 
-    analyticsEvent(event) {
+    callListener(event) {
         const { type, data } = event || {};
 
         if (!type) {
