@@ -1,16 +1,16 @@
-![npm](https://img.shields.io/npm/v/next-react-analytics.svg) ![NPM](https://img.shields.io/npm/l/next-react-analytics.svg) 
-![npm bundle size](https://img.shields.io/bundlephobia/min/next-react-analytics.svg) 
+![npm](https://img.shields.io/npm/v/next-next-react-analytics.svg) ![NPM](https://img.shields.io/npm/l/next-next-react-analytics.svg) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/next-next-react-analytics.svg) 
 ![npm bundle size](https://github.com/kushalmahajan/next-react-analytics.git)
 
 ### Installation
 
 ```
-yarn add react-analytics
+yarn add next-react-analytics
 ```
 or
 
 ```
-npm i react-analytics --save
+npm i next-react-analytics --save
 ```
 
 ### Setup for redux app
@@ -38,7 +38,7 @@ export default segmentTagClick;
 Suggest you to create a folder analytics in your src. You can place all your listeners inside listeners sub-folder moving forward.
 
 ```
-import { Analytics, analyticsMiddleware } from 'react-analytics';
+import { Analytics, analyticsMiddleware } from 'next-react-analytics';
 import segmentTagClick from './analytics/listeners/segment-tag-click';
 
 const analytics = new Analytics([segmentTagClick]);
