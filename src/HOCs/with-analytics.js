@@ -1,5 +1,4 @@
 import React from 'react'
-// import propTypes from 'prop-types';
 import { useContext } from 'react';
 import { AnalyticsContext } from '../analytics-context';
 import { getDisplayName } from '../utils';

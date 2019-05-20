@@ -1,7 +1,11 @@
 import { SEGMENT_TAG_CLICK } from '../constants';
+import cogoToast from 'cogo-toast';
 
 function segmentTagClick(event, eventsHistory){
-    console.log('listener', event, eventsHistory);
+    cogoToast.info(JSON.stringify(event.data), {
+        heading: event.type
+    });
+
     // window.dataLayer.push(event);
     // pixel call
     // adobe analytics

@@ -7,7 +7,8 @@
     "author": "Kushal V. Mahajan",
     "license": "MIT",
     "dependencies": {
-        "next-react-analytics": "^1.0.5",
+        "cogo-toast": "^1.0.4",
+        "next-react-analytics": "^1.0.7",
         "react": "^16.8.6",
         "react-dom": "^16.8.6",
         "react-redux": "^7.0.3",

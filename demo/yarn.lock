@@ -1446,6 +1446,11 @@ code-point-at@^1.0.0:
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
   integrity sha1-DQcLTQQ6W+ozovGkDi7bPZpMz3c=
 
+cogo-toast@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/cogo-toast/-/cogo-toast-1.0.4.tgz#8988cd93fdd1639bcd76a9c286af4fd48ffb34f3"
+  integrity sha512-nr6QTCr+crM4QhIhL6xNByVe4Y+CHT6HmEDnBM/H5hnWNsXFf0dxeN0rJvnZFWWK2IB9XnRbXnUDrLLbTiin0Q==
+
 collection-visit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/collection-visit/-/collection-visit-1.0.0.tgz#4bc0373c164bc3291b4d368c829cf1a80a59dca0"
@@ -3555,10 +3560,14 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next-react-analytics@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/next-react-analytics/-/next-react-analytics-1.0.5.tgz#b47117980450b012d62914ec45fd19fe56f93ed7"
-  integrity sha512-YgNKWEQ1Qni/cumc8Ow84YHPlDbeu+zWnkbhn1PhxFpJgY233Pv072mf5HFUD2WrpeutLrfwt9swd2K8Eaymug==
+next-react-analytics@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/next-react-analytics/-/next-react-analytics-1.0.7.tgz#516f1269e21b5bbb27e9fc911dc98a355de5eff1"
+  integrity sha512-B9uDhDeL25SSAI69W0Sy8R9pAn399IzN/yPUr9bIfciQcVPU0iWMuxJIUDIDWKec+BkxOzCd2kDBpAwpmQ3/Tg==
+  dependencies:
+    "@babel/core" "^7.4.4"
+    react "^16.8.6"
+    react-dom "^16.8.6"
 
 nice-try@^1.0.4:
   version "1.0.5"

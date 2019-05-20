@@ -1,6 +1,6 @@
 ![npm](https://img.shields.io/npm/v/next-react-analytics.svg) ![NPM](https://img.shields.io/npm/l/next-react-analytics.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/next-react-analytics.svg) 
-![npm bundle size](https://github.com/kushalmahajan/next-react-analytics.git)
+
 
 ### Installation
 
@@ -61,3 +61,6 @@ For example in your listener, you can call GTM or segment events and amny others
 window.dataLayer.push(event);
 segment.analytics({ eventName: '', data: {}})
 ``` 
+
+
+Made with love ❤️ at Turtlemint.

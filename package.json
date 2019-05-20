@@ -1,17 +1,20 @@
 {
     "name": "next-react-analytics",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "react, redux, analytics",
     "main": "dist/index.js",
     "repository": "https://github.com/kushalmahajan/next-react-analytics.git",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
     "dependencies": {
+        "@babel/core": "^7.4.4",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
     },
     "devDependencies": {
         "@babel/cli": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "@babel/preset-react": "^7.0.0",
         "eslint": "^5.16.0",
         "prop-types": "^15.7.2"
     },
