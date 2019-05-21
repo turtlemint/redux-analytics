@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from  'react-dom';
-import Consumer from './consumer';
-import store from './store';
+import configureStore, { history } from './configure-store';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router'
+import AppRouter from './router';
+
+export const store = configureStore(/* provide initial state if any */)
 
 
 const App = () => {
     return (
         <Provider store={store}>
-            <Consumer />
+            <ConnectedRouter history={history}>
+                <AppRouter />
+            </ConnectedRouter>
         </Provider>
     );
 }

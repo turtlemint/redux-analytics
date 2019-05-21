@@ -1,4 +1,4 @@
-import { SEGMENT_TAG_CLICK } from '../constants';
+import { SEGMENT_TAG_CLICK } from '../../constants';
 import cogoToast from 'cogo-toast';
 
 function segmentTagClick(event, eventsHistory){
