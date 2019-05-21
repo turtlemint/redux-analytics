@@ -13,6 +13,9 @@ or
 npm i next-react-analytics --save
 ```
 
+#### Uses latest React Hooks (16.8.x) and context API's under the hood.
+
+
 ### Setup for redux app
 
 
