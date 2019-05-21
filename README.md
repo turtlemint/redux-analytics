@@ -96,11 +96,11 @@ export default pageViewListener;
 
 #### 2 - If you're using React router for your navigation
 
-It's prabably not a solution you will keep for your apps at scale or you may have already converted your app to something more redux inclined for all your actions after realising the ease of doing extra things like analytics, error logging too.
-
-If you have not and in process to do so, here's stackOverflow [question](https://stackoverflow.com/q/45373742/1096194) mentioning how react router provides a listener on the browserHistory to do so.
+It's probably not a solution you will keep for your react-redux apps at scale or you may have already converted your app to something more redux inclined for all your actions after realising the ease of doing extra things like analytics, error logging etc. But if you have not and in process to do so, here's Stack Overflow [question](https://stackoverflow.com/q/45373742/1096194) mentioning how react router provides a listener on the browserHistory to do so.
 
 Then after which you can directly call `Analytics.callListener(event)` function to 
 to dispatch an event. 
 
-Made with love ❤️ at Turtlemint.
+
+
+#### Made with love ❤️ at Turtlemint.
