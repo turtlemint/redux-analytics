@@ -21,21 +21,20 @@ npm i next-react-analytics --save
 ### Setup for redux app
 
 
-#### defining the listeners
+#### Common listener for tracking all redux events 
 
 ```
-import { SEGMENT_TAG_CLICK } from '../constants';
-
-function segmentTagClick(event, eventsHistory){
-    window.dataLayer.push(event);
+const trackListener = (event, eventsHistory) => {
+    const dataLayerObj = {...event};
+    dataLayerObj.event = 'track_event';
+    window.dataLayer.push(dataLayerObj);
     return event;
-}
-segmentTagClick.eventType = SEGMENT_TAG_CLICK;
+};
+export default trackListener;
 
-export default segmentTagClick;
 ```
 
-`eventType` needs to be same as the `action.type` that you want to track. Important is that you *return* the event if you want to take decisions based on the `eventsHistory`. For example, to not abuse the multiple clicks of critical buttons, say `Checkout`, you want to provide a conditional check if your event is not already fed to analytics.
+Important is that you *return* the event if you want to take decisions based on the `eventsHistory`. For example, to not abuse the multiple clicks of critical buttons, say `Checkout`, you want to provide a conditional check if your event is not already fed to analytics.
 
 
 #### defining the store and registering the middleware
@@ -44,9 +43,9 @@ Suggest you to create a folder analytics in your src. You can place all your lis
 
 ```
 import { Analytics, analyticsMiddleware } from 'next-react-analytics';
-import segmentTagClick from './analytics/listeners/segment-tag-click';
+import trackListener from './analytics/listeners/track-listener';
 
-const analytics = new Analytics([segmentTagClick]);
+const analytics = new Analytics([trackListener]);
 
 const store = createStore(
     rootReducer,
@@ -54,8 +53,7 @@ const store = createStore(
 );
 
 ```
-
-This is it for using this library.
+This it for using this library. 💣 💥
 
 
 Remember, your app works normally. Dispatch the actions and it will handle the analytics, registration for you and at the same time giving you the flexibility for calling whichever provider you require.
@@ -63,7 +61,7 @@ Remember, your app works normally. Dispatch the actions and it will handle the a
 For example in your listener, you can call GTM or segment events and amny others as per your requirement.
 
 ```
-window.dataLayer.push(event);
+...
 segment.analytics({ eventName: '', data: {}})
 ``` 
 
@@ -107,5 +105,50 @@ Then after which you can directly call `Analytics.callListener(event)` function 
 to dispatch an event. 
 
 
+### More considerations
 
-#### Made with love ❤️ at Turtlemint.
+1. How to NOT track all events
+
+You can maintain a dictionary of events and attach even event transformers to it to return the data you want to send to analytics provider(GTM/Segment).
+
+Here's how
+
+``` 
+export const EVENTS = {
+    SET_SEARCH_TEXT: (event) => ({ ...event }),
+    FETCH_API_DATA_SUCCESS: (event) => ({ ...event, type: event.type, data: event.payload })
+};
+const trackListener = (event, eventsHistory) => {
+    // Check if event exists
+    if(EVENTS[event.type]){
+        // Call the transform function if required and get the data
+        const dataLayerObj = EVENTS[event.type](event);
+        // If not use the event as such
+        // const dataLayerObj = {...event };
+        dataLayerObj.event = 'track_event';
+        window.dataLayer.push(dataLayerObj);
+        return event;
+    }
+};
+export default trackListener;
+```
+
+2. How to track only specific events ? 
+
+
+Mostly you'll not need it. But here's how to specify the listener for each event manually 
+
+```
+function getQuoteListener(event, eventsHistory){
+    window.dataLayer.push(event);
+    return event;
+}
+getQuoteListener.eventType = 'GET_QUOTE_CLICK';
+
+export default getQuoteListener;
+```
+
+`eventType` needs to be same as the `action.type` that you want to track. 
+
+
+#### Made with love ❤️ at Turtlemint and in 2019 📆
