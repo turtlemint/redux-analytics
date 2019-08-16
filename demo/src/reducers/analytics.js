@@ -6,7 +6,6 @@ const initialState = {
 const analytics = (state = initialState, action) => {
     switch(action.type){
         case SEGMENT_TAG_CLICK:
-            console.log('reducer', state);
             return {
                 ...state,
                 tracked: true

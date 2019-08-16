@@ -30,11 +30,11 @@ export default class Analytics {
 
         for (let i = 0; i < this.listeners.length; i++) {
             const listener = this.listeners[i];
-
             if (
                 typeof listener === 'function' &&
                 (
                     listener.eventType === type
+                    || (typeof listener.eventType === 'object' && listener.eventType.includes(type))
                     || listener.eventType === '*'
                     || typeof listener.eventType === 'undefined'
                 )
