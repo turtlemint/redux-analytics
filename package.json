@@ -3,7 +3,7 @@
     "version": "1.0.10",
     "description": "react, redux, analytics",
     "main": "dist/index.js",
-    "repository": "https://github.com/kushalmahajan/next-react-analytics.git",
+    "repository": "https://github.com/turtlemint/redux-analytics.git",
     "author": "Kushal V. Mahajan",
     "license": "MIT",
     "dependencies": {
