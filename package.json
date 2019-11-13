@@ -1,6 +1,6 @@
 {
     "name": "@turtlemint/redux-analytics",
-    "version": "1.0.10",
+    "version": "0.0.1",
     "description": "react, redux, analytics",
     "main": "dist/index.js",
     "repository": "https://github.com/turtlemint/redux-analytics.git",
