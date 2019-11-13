@@ -1,11 +1,10 @@
 {
-    "name": "redux-analytics",
+    "name": "@turtlemint/redux-analytics",
     "version": "1.0.10",
     "description": "react, redux, analytics",
     "main": "dist/index.js",
     "repository": "https://github.com/turtlemint/redux-analytics.git",
     "author": "Kushal V. Mahajan",
-    "license": "MIT",
     "dependencies": {
         "@babel/core": "^7.4.4",
         "react": "^16.8.6",
@@ -21,8 +20,12 @@
     "scripts": {
         "build": "babel --out-dir dist src"
     },
+    "publishConfig": {
+        "access": "public"
+    },
     "files": [
         "dist",
         "README.md"
-    ]
+    ],
+    "license": "GPL-3.0"
 }
