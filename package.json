@@ -1,6 +1,6 @@
 {
-    "name": "next-react-analytics",
-    "version": "1.0.9",
+    "name": "redux-analytics",
+    "version": "1.0.10",
     "description": "react, redux, analytics",
     "main": "dist/index.js",
     "repository": "https://github.com/kushalmahajan/next-react-analytics.git",
