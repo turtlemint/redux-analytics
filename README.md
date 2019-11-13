@@ -1,16 +1,16 @@
-![npm](https://img.shields.io/npm/v/next-react-analytics.svg) ![NPM](https://img.shields.io/npm/l/next-react-analytics.svg) 
-![npm bundle size](https://img.shields.io/bundlephobia/min/next-react-analytics.svg) 
+![npm](https://img.shields.io/npm/v/@turtlemint/redux-analytics.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/redux-analytics.svg) 
+![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/redux-analytics.svg) 
 
 
 ### Installation
 
 ```
-yarn add next-react-analytics
+yarn add @turtlemint/redux-analytics
 ```
 or
 
 ```
-npm i next-react-analytics --save
+npm i @turtlemint/redux-analytics --save
 ```
 
 #### Uses latest React Hooks (16.8.x) and context API's under the hood.
@@ -72,25 +72,25 @@ segment.analytics({ eventName: '', data: {}})
 When you navigate via any of the  [ways](https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-use-your-own-context-with-react-redux) you will basically call push function
 
 ```
-    push('/some-state')
+push('/some-state')
 ```
 
 Now, push automatically dispatches a `@@router/LOCATION_CHANGE`. So we have a default action.type to listen to. If you probably have guessed all you need to do is maintain a one single listener function for all your page views. 
 
 ```
-    const pageViewListener = (event, eventsHistory) => {
-    const { pathname, search, hash} = event.payload.location;
-    const locationEvent = {
-        type: 'PAGE_VIEW',
-        data: {
-            page: pathname,
-            search,
-            hash
-        }
-    };
-    // window.dataLayer.push(locationEvent);
-    // segment.trackPage(locationEvent);
-    return locationEvent;
+const pageViewListener = (event, eventsHistory) => {
+const { pathname, search, hash} = event.payload.location;
+const locationEvent = {
+    type: 'PAGE_VIEW',
+    data: {
+        page: pathname,
+        search,
+        hash
+    }
+};
+// window.dataLayer.push(locationEvent);
+// segment.trackPage(locationEvent);
+return locationEvent;
 }
 pageViewListener.eventType = '@@router/LOCATION_CHANGE';
 
