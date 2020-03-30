@@ -42,7 +42,7 @@ Important is that you *return* the event if you want to take decisions based on 
 Suggest you to create a folder analytics in your src. You can place all your listeners inside listeners sub-folder moving forward.
 
 ```
-import { Analytics, analyticsMiddleware } from 'next-react-analytics';
+import { Analytics, analyticsMiddleware } from '@turtlemint/redux-analytics';
 import trackListener from './analytics/listeners/track-listener';
 
 const analytics = new Analytics([trackListener]);
