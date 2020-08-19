@@ -1,4 +1,4 @@
-![npm](https://img.shields.io/npm/v/@turtlemint/redux-analytics.svg) ![NPM](https://img.shields.io/npm/l/@turtlemint/redux-analytics.svg) 
+![npm](https://img.shields.io/npm/v/@turtlemint/redux-analytics.svg)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/@turtlemint/redux-analytics.svg) 
 
 
