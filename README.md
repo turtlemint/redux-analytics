@@ -143,7 +143,7 @@ function getQuoteListener(event, eventsHistory){
     window.dataLayer.push(event);
     return event;
 }
-getQuoteListener.eventType = 'GET_QUOTE_CLICK';
+getQuoteListener.eventType = ['GET_QUOTE_CLICK', 'BUY_POLICY'];
 
 export default getQuoteListener;
 ```
